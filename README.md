@@ -1,4 +1,5 @@
 # WELCOME TO MOKO CODE
+![alt tag](https://github.com/komutkadum/18.Moko---Real-time-web-chat/blob/main/Screenshot%202022-09-21%20134859.png)
 MOKO is a chat application with Incredible features such as Messaging, Video calling, multiplayer games includingTic Tac Toe, Bingo and Chess. It is Powered by the most Powerfull servers from Google firebase which act as Backend and provides the Best Security known.
 You can do much more than Messaging, like Creating rooms with your favorite contacts, uploading pictures of 4 and a word which you might have guessed is a version of 4 Snaps.Interactivity at its best powered by React's powerfull components to render your Perfect needs.
 And yes, MESSAGES ARE ENCRYPTED!
