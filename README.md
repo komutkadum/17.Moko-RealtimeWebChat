@@ -1,7 +1,51 @@
 # WELCOME TO MOKO CODE
+MOKO is a chat application with Incredible features such as Messaging, Video calling, multiplayer games includingTic Tac Toe, Bingo and Chess. It is Powered by the most Powerfull servers from Google firebase which act as Backend and provides the Best Security known.
+You can do much more than Messaging, like Creating rooms with your favorite contacts, uploading pictures of 4 and a word which you might have guessed is a version of 4 Snaps.Interactivity at its best powered by React's powerfull components to render your Perfect needs.
+And yes, MESSAGES ARE ENCRYPTED!
 
-MOKO is a humongous chat application which combines the power of firebase and React to produce better user interface.
+## Features
+- Chat
+- contacts
+- real time game
+  - tic tac toe
+  - bingo
+  - chess
+- Broadcast
+- Rooms
+  - chat
+- Typing speed
+
+## Tech Stack
+- React
+- firebase
+- nanoid
+- chess.js
+- react-linkify
+- react-image-crop
+- sweet-alert2
+
+## Firebase Collections
+- User ->
+  - Description : To store user details
+  - Users - > Userid - > {email, photo, uid, username}
+- Contacts ->
+  - Description : to store contact information
+  - Contacts - > Userid - > userRooms - > Userid - > {photo,uid,username} 
+- Rooms ->
+  - Rooms - > Userid - > userRooms - > messageId - > {createdat, message, photo, uid, username}
+- Messages ->
+  - Messages - > Messageid - > userMessage - > messages - > {createdat, from message, photo}
+- Notification ->
+  - Notification - > userId - > userNotification - > eachNotificationId - > {createdAt , text}
+
 
 ## add your firebase apis here
-moko/src/Components/Firebase/firebase.js /
+moko/src/Components/Firebase/firebase.js/
+
+## Team members
+- [kadumkomut](https://kadumkomutdev.github.io/kadumkomut/)
+- [MohitPal](https://github.com/MOHITBLAZE07)
+- [AkshayMishra](https://www.linkedin.com/in/akshay-mishra-08085367/)
+
+### © [kadumkomut](https://kadumkomutdev.github.io/kadumkomut/)
 
