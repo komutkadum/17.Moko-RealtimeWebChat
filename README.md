@@ -43,6 +43,13 @@ And yes, MESSAGES ARE ENCRYPTED!
 ## add your firebase apis here
 moko/src/Components/Firebase/firebase.js/
 
+## firebase deployment process
+- first build the react app using commands
+  npm run build
+- once build, follow the process of firebase deployment using these commands
+  firebase init
+  firebase deploy --only hosting
+
 ## Team members
 - [kadumkomut](https://kadumkomutdev.github.io/kadumkomut/)
 - [MohitPal](https://github.com/MOHITBLAZE07)
