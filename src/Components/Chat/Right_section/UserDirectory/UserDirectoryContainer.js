@@ -15,16 +15,16 @@ export default function UserDirectoryContainer() {
     const [userList,loading] = useCollectionData(userListRef,{idField:"id"});
     return (
         <div className="userDirectory">
-            <h2 className="w3-padding-large w3-dark w3-center"><i className="fas fa-user-plus"></i> Connect with friends you know </h2>
-            <div className=" userDirectory-user ">
-                {
-                    loading?<div className="loading"><Circle /></div>:
-                    userList.map(user=>(
-                        <List firestore={firestore} firebase={firebase.firebase} auth={auth} key={user.id} uid={user.uid} username={user.username} photo={user.photo}/>      
-                    ))
-                }  
-                </div>
-            </div>
+            {loading &&<div style={{width:"100%", height:"100%",display:"flex",justifyContent:"center",alignItems:"center"}} className="loading"><Circle /></div>}
+            {!loading&&<>
+            <h2 className="w3-padding-large w3-dark w3-center"><i className="fas fa-user-plus"></i> Connect with friends - {userList.length} </h2>
+            <div className="userDirectory-user">
+                {userList.map(user=>(
+                    <List firestore={firestore} firebase={firebase.firebase} auth={auth} key={user.id} uid={user.uid} username={user.username} photo={user.photo}/>      
+                ))}
+            </div></>
+            }
+        </div>
     )
 }
 
@@ -33,13 +33,13 @@ const List = ({photo,username,uid,firestore,auth,firebase}) =>{
     const ref = React.createRef();
     const [present, setPresent] = useState(true);
     const [disable,setDisable] = useState(false);
-    const [buttonText, setButtonText] = useState("Add+");
+    const [buttonText, setButtonText] = useState("Add +");
     const userRef = firestore.collection('contacts').doc(auth.currentUser.uid).collection('userRooms');
 
     const addContact = () =>{
         addToContact(setDisable,setButtonText,firestore,userRef,uid,username,photo,auth,firebase,setPresent)
     }
-    
+    // to check if a user is already in the contact list, don't show it to the logged in user
     useEffect(()=>{
         try{
             userRef.doc(uid).get()
@@ -57,7 +57,7 @@ const List = ({photo,username,uid,firestore,auth,firebase}) =>{
     return !present&&(
             <div ref={ref} 
             style={{display:"flex",justifyContent:"flex-start",alignItems:"center"}}
-            className="w3-round w3-animate-right item w3-padding-large w3-center">
+            className="w3-round item w3-padding-large w3-center">
                 <div className="w3-hover-sepia" onClick={()=>navigateProfile(username,photo,uid,history)} style={{marginRight:"6px",cursor:"pointer"}}>
                     <img src={photo} alt={username} className="w3-circle" style={{height:"70px",width:"70px"}}/>
                 </div>
@@ -68,6 +68,7 @@ const List = ({photo,username,uid,firestore,auth,firebase}) =>{
                     <button 
                         disabled={disable} 
                         onClick={addContact} 
+                        style={{width:"100px",paddingBlock:"7px",fontWeight:"bold"}}
                         className="w3-block w3-small w3-hover-darker w3-button w3-dark  w3-round">
                         {buttonText}
                     </button>

@@ -1,6 +1,22 @@
 {
-  "hosting": {
-    "site":"mokoapp",
+  "hosting": [
+    {
+    "target":"webapp",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  {
+    "target":"firebaseapp",
     "public": "build",
     "ignore": [
       "firebase.json",
@@ -14,4 +30,5 @@
       }
     ]
   }
+]
 }

@@ -1,5 +1,19 @@
 {
   "projects": {
     "default": "fir-project-9bafb"
-  }
+  },
+  "targets": {
+    "fir-project-9bafb": {
+      "hosting": {
+        "webapp": [
+          "mokoapp"
+        ],
+        "firebaseapp": [
+          "fir-project-9bafb"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

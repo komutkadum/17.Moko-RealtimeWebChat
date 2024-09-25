@@ -1,4 +1,4 @@
-import {useState,useContext,useEffect} from 'react';
+import React,{useState,useContext,useEffect} from 'react';
 import {FirebaseContext} from '../Firebase';
 import Ripple from '../loader/Ripple'
 import TimeAgo from '../TimeAgo';

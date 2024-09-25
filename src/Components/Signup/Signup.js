@@ -78,6 +78,7 @@ const Signup = ()=> {
                         uid : auth.currentUser.uid,
                         photo : auth.currentUser.photoURL,
                         email : auth.currentUser.email,
+						creationDate : auth.currentUser.metadata.creationTime
 					}) // create the document
 					batch.set(notificationCount,{count : 0,chatCount:0,roomCount:0,typingCount:0,broadcastCount:0,requestCount:0});
 					batch.commit().catch(error=>{
@@ -85,9 +86,8 @@ const Signup = ()=> {
 					})
                 }
             });         
-            
         }catch(err){
-            // alert("some error occured");
+            alert("some error occured while signing up or login");
         }
 		return <Redirect to="/home/chat" />
 	}
@@ -112,11 +112,11 @@ const Signup = ()=> {
 				<h1 className="signup-logo" style ={{ textAlign:"center"}}>MOKO™</h1>
 
 				<div className="container">
-					{active==0?
+					{active===0?
 						<Main uiConfig={uiConfig} firebaseInstance={firebaseInstance.auth}/>:
-						active==1?<About />:
-						active==2?<Contact />:
-						active==3?<Team />:null}
+						active===1?<About />:
+						active===2?<Contact />:
+						active===3?<Team />:null}
 				</div>
 
 				

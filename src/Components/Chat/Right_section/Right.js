@@ -15,17 +15,17 @@ const Right = ({match}) => {
                 {
                     // if the url has already a user's id present and 
                     // the active window is the chat bar in the top left
-                    id!=0&&active==1?
+                    id!==0&&active===1?
                         <MainContainer />:
                     //if the url is empty
                     //the active window is the chat bar, show the welcome sign in the right
-                    id==0&&active==1?
+                    id===0&&active===1?
                     <Welcome />:
                     //if the active window is user directory
-                    active==2?
+                    active===2?
                     <UserDirectoryContainer />:
                     //if the active window is the game
-                    active==3?
+                    active===3?
                     <GameContainer />:
                     null
                 }
@@ -45,7 +45,7 @@ const Welcome = () =>{
                 <span style={{alignSelf:'flex-start',marginTop:"10px"}}>Welcome To&nbsp;</span>
                 <span className="chat-welcome-moko">
                     <span style={mokoStyle} className="w3-dark">MOKO</span>
-                    <p className="chat-welcome-moko-secure w3-text-green" style={{marginTop:'5px'}}>ITS MORE SECURE NOW <i className="fas fa-lock"></i></p>
+                    <p className="chat-welcome-moko-secure w3-text-green" style={{marginTop:'12px'}}>CHATS MORE SECURED <i className="fas fa-lock"></i></p>
                 </span>
             </h1>
         </div>

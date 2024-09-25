@@ -58,3 +58,19 @@ const logOut = (signout) =>{
         }
       })
 }
+
+export const convertGMTtoDate = (inputDate) => {
+  // Parse the date string into a JavaScript Date object
+  const date = new Date(inputDate);
+
+  // Define arrays for months and days to format the date
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  // Extract the day, month, and year from the Date object
+  const day = date.getUTCDate(); // Get the day of the month
+  const month = months[date.getUTCMonth()]; // Get the month name from the array
+  const year = date.getUTCFullYear(); // Get the year
+
+  // Format the output as "day month year" (e.g., "21 Dec 2020")
+  return `${day} ${month} ${year}`;
+}

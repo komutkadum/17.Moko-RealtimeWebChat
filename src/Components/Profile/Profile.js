@@ -6,6 +6,7 @@ import profile from './profile.jpg'
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import Modal from './Modal';
 import Linkify from 'react-linkify';
+import { convertGMTtoDate } from '../Chat/ExtraFunction/ExtraFunction'
 
 export default function Profile({match}) {
     const firebase = useContext(FirebaseContext);
@@ -14,12 +15,11 @@ export default function Profile({match}) {
 
     const [isOpenModal,setIsOpenModal] = useState(false);
 
-
     const other = match.params.id?match.params.id:auth.currentUser.uid;
 
     const query = firestore.collection('users').doc(other);
     const [user] = useDocumentData(query,{idField:"id"});
-
+    
     const updateStatus = () =>{
         Swal.fire({
             title:"Status",
@@ -357,6 +357,14 @@ export default function Profile({match}) {
                             </div>
                             <div className="myWebsite w3-padding-large w3-background w3-large w3-text-grey" style={{letterSpacing:"1px"}}>
                                 <Linkify><b>{(user&&user.website)||"Not updated"}</b></Linkify>
+                            </div>
+                        </div>
+                        <div className="item">
+                            <div className="w3-dark w3-padding-medium">
+                               MEMBER SINCE 
+                            </div>
+                            <div className="myWebsite w3-padding-large w3-background w3-large w3-text-grey" style={{letterSpacing:"1px"}}>
+                                <b>{((user&&user.creationDate)&&convertGMTtoDate(user.creationDate))||"Not updated"}</b>
                             </div>
                         </div>
                     </div>
